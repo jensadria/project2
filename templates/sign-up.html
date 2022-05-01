@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Sign Up</h1>
+<div>
+	<form action="/sign-up" method="POST" id="sign-up-form">
+		name: <input type="text" name="name"><br>
+		email: <input type="text" name="email"><br>
+		password: <input type="password" name="password" id="password"><br>
+		check password: <input type="password" name="checkpassword" id="checkpassword"><br>
+		<input type="submit" value="Sign Up">
+		<p id="errormessage"></p>
+	</form>
+</div>
+
+<script>
+	const form = document.getElementById("sign-up-form");
+	const password = document.getElementById("password");
+	const checkpassword = document.getElementById("checkpassword");
+	const errorMessage = document.getElementById("errormessage");
+
+	form.addEventListener('submit', (e) => {
+		if (password.value !== checkpassword.value) {
+			e.preventDefault();
+			errorMessage.textContent = "Passwords do not match"
+		}
+	})
+</script>
+{% endblock %}
