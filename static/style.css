@@ -1,0 +1,44 @@
+:root {
+  --primary: teal;
+  --site-width: 1024px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*border: 1px red dotted;*/
+}
+
+header {
+  background-color: var(--primary);
+}
+
+main {
+  max-width: var(--site-width);
+  margin: auto;
+}
+
+/* LOGIN & SIGN-UP PAGE */
+
+#nav-header {
+  max-width: var(--site-width);
+  height: 50px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#header-links > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+#login-container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+}

@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Log in </h1>
-<div>
+<div id="login-container" class="card">
 	<form action="/login" method="POST">
 		email: <input type="text" name="email"><br>
 		password: <input type="password" name="password"><br>
@@ -10,7 +10,6 @@
 		{% if signup %}
 		<h3>Sign Up failed</h3>
 		{% endif %}
-
 	</form>
 </div>
 {% endblock %}

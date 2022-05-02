@@ -1,7 +1,8 @@
 import os
 import psycopg2
+import bcrypt
 
-DB_URL = os.environ.get("DATABASE_URL", "dbname=name")
+DB_URL = os.environ.get("DATABASE_URL", "dbname=jobs")
 
 # Run a SQL SELECT query and return all rows of results
 # Example:
