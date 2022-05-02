@@ -8,9 +8,15 @@
 				<li>
 					Jobs
 				</li>
+				{% if session['logged_in'] ==True %}
 				<li id="user">
-					Jens
+					{{session['user'][1]}}
 				</li>
+				<li id="user">
+					<a href="/logout">Logout</a>
+				</li>
+				{% endif %}
+
 			</ul>
 		</div>
 	</nav>

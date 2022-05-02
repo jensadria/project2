@@ -9,8 +9,7 @@ app.config['SECRET_KEY'] = environ.get('SECRET_KEY', 'secret key')
 
 @app.route('/')
 def index():
-    if not session:
-        session['logged_in'] = True
+    if session['logged_in'] == False:
         return render_template('login.html')
     return render_template('index.html')
 
@@ -46,6 +45,13 @@ def login():
             return redirect('/')
         else:
             return redirect('/login?signup=fail')
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    session['logged_in'] = False
+    return redirect('/')
 
 
 if __name__ == '__main__':
