@@ -1,3 +1,12 @@
 {% for application in applications %}
-{{ application }}
+{% set user_id, job_title, company, deadline_date, applied_date, job_board, type_of_work, progress, progress_id =
+application %}
+
+<div class="card job-container">
+	<div class="heading">
+		<h2>{{job_title}}</h2>
+		<h3>{{company}}</h3>
+	</div>
+</div>
+
 {% endfor %}
