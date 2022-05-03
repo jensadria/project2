@@ -47,3 +47,33 @@ main {
   margin: 10px 0 10px 0;
   padding: 10px;
 }
+
+.progress-pill {
+  display: inline-block;
+  background-color: grey;
+  padding: 4px 10px 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+#add-job-dialog {
+  width: 700px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  transition: all 3s;
+  border: none;
+}
+
+#add-job-dialog[open] {
+  pointer-events: inherit;
+  opacity: 1;
+}
+
+#add-job-dialog::backdrop {
+  backdrop-filter: blur(1px);
+}

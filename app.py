@@ -2,6 +2,7 @@ from db import sql_fetch, sql_signup, sql_write
 from flask import Flask, render_template, session, request, redirect
 from os import environ
 import bcrypt
+import job_queries
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = environ.get('SECRET_KEY', 'secret key')
@@ -13,23 +14,19 @@ def index():
         return redirect('/login')
     if session['logged_in']:
         current_user_id = session['user'][0]
-        applications = sql_fetch(
-            '''SELECT applications.id, title, companies.name, deadline, applied, board,type_of_work, progress_status, progress_id FROM APPLICATIONS
-                INNER JOIN progress ON progress_id = progress.id
-                INNER JOIN companies ON company_id = companies.id
-                INNER JOIN types_of_work ON type_of_work_id = types_of_work.id
-                INNER JOIN job_board ON job_board_id = job_board.id
-                WHERE user_id = %s''', [current_user_id])
+        applications = sql_fetch(job_queries.all_jobs, [current_user_id])
     return render_template('index.html', applications=applications)
 
 
-@app.route('/job')
-def job():
-    if session['logged_in'] == False:
-        return render_template('login.html')
+@app.route('/job/<id>')
+def job(id):
+    if not session['logged_in']:
+        return redirect('/login')
     if session['logged_in']:
-        job = sql_fetch()
-        return render_template('job.html')
+        current_user_id = session['user'][0]
+        job = sql_fetch(job_queries.job_by_id, [current_user_id, id])[0]
+
+        return render_template('job.html', job=job)
 
 
 @app.route('/sign-up', methods=['POST', 'GET'])
