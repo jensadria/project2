@@ -1,14 +1,14 @@
-INSERT INTO status(status) VALUES('wishlist');
-INSERT INTO status(status) VALUES('applied');
-INSERT INTO status(status) VALUES('interview');
-INSERT INTO status(status) VALUES('offer');
-INSERT INTO status(status) VALUES('rejected');
-INSERT INTO status(status) VALUES('closed');
+INSERT INTO progress(progress_status) VALUES('wishlist');
+INSERT INTO progress(progress_status) VALUES('applied');
+INSERT INTO progress(progress_status) VALUES('interview');
+INSERT INTO progress(progress_status) VALUES('offer');
+INSERT INTO progress(progress_status) VALUES('rejected');
+INSERT INTO progress(progress_status) VALUES('closed');
 
 
-INSERT INTO type(type) VALUES ('On-Site');
-INSERT INTO type(type) VALUES ('Remote');
-INSERT INTO type(type) VALUES ('Hybrid');
+INSERT INTO types_of_work(type_of_work) VALUES ('On-Site');
+INSERT INTO types_of_work(type_of_work) VALUES ('Remote');
+INSERT INTO types_of_work(type_of_work) VALUES ('Hybrid');
 
 INSERT INTO job_board(board) VALUES ('LinkedIn');
 INSERT INTO job_board(board) VALUES ('SEEK');
@@ -17,7 +17,14 @@ INSERT INTO job_board(board) VALUES ('Indeed');
 INSERT INTO users(name, email, password_hash) VALUES (
 	'Jens', 'yencey@gmail.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'
 );
+INSERT INTO users(name, email, password_hash) VALUES (
+	'lionel', 'lionel@gmail.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'
+);
 
-INSERT INTO companies (company_name, phone, email) VALUES ('RAC', '9430 6514', 'jobs@rac.com.au');
+INSERT INTO companies (name, phone, email) VALUES ('RAC', '9430 6514', 'jobs@rac.com.au');
+INSERT INTO companies (name, phone, email) VALUES ('Canva', '9430 1234', 'melanie@canva.com.au');
 
-INSERT INTO applications(user_id, title, company, deadline, applied, type, job_board) VALUES (1, 'Software Engineer', 1, '2022-10-1', '2022-5-1', 1,1);
+INSERT INTO applications(user_id, progress_id,  title, company_id, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (1,1, 'Software Engineer', 1, '2022-10-1', '2022-5-1',1,1, 'https://www.google.com');
+INSERT INTO applications(user_id, progress_id, title, company_id, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (1,1, 'Web Developer', 2, '2022-9-5', '2022-5-5',2,2, 'https://www.canva.com');

@@ -11,7 +11,16 @@ app.config['SECRET_KEY'] = environ.get('SECRET_KEY', 'secret key')
 def index():
     if session['logged_in'] == False:
         return render_template('login.html')
-    return render_template('index.html')
+    if session['logged_in']:
+        current_user_id = session['user'][0]
+        applications = sql_fetch(
+            '''SELECT applications.id, title, companies.name, deadline, applied, board,type_of_work, progress_status FROM APPLICATIONS
+                INNER JOIN progress ON progress_id = progress.id
+                INNER JOIN companies ON company_id = companies.id
+                INNER JOIN types_of_work ON type_of_work_id = types_of_work.id
+                INNER JOIN job_board ON job_board_id = job_board.id
+                WHERE user_id = %s''', [current_user_id])
+    return render_template('index.html', applications=applications)
 
 
 @app.route('/sign-up', methods=['POST', 'GET'])
