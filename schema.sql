@@ -45,6 +45,12 @@ CREATE TABLE job_board (
 	board TEXT
 );
 
+CREATE TABLE files (
+	id SERIAL PRIMARY KEY,
+	job_id REFERENCES applications(id),
+	url_address TEXT NOT  
+)
+
 CREATE TABLE applications (
 	id SERIAL PRIMARY KEY,
 	progress_id INTEGER REFERENCES progress(id),
