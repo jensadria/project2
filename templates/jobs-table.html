@@ -1,14 +1,14 @@
 {% for application in applications %}
+
 {% set job_id, job_title, company, deadline_date, applied_date, job_board, type_of_work, progress, progress_id =
 application %}
 
-<div class="card job-container">
-	<div class="heading">
-		<h2>{{job_title}}</h2>
-		<h3>{{company}}</h3>
-		<span class="{{progress}} progress-pill">{{progress}}</span>
-		<a href="/job/{{job_id}}">View Job Details</a>
-	</div>
+<div class="job-container">
+	<h2>{{job_title}}</h2>
+	<h3>{{company}}</h3>
+	<p>Applied {{applied_date.strftime('%B %-d, %Y')}}</p>
+	<a href="/job/{{job_id}}">View Job Details</a>
+	<span class="{{progress}} progress-pill">{{progress}}</span>
 </div>
 
 {% endfor %}

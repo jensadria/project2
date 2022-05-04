@@ -23,8 +23,11 @@ INSERT INTO users(name, email, password_hash) VALUES (
 
 INSERT INTO companies (name, phone, email) VALUES ('RAC', '9430 6514', 'jobs@rac.com.au');
 INSERT INTO companies (name, phone, email) VALUES ('Canva', '9430 1234', 'melanie@canva.com.au');
+INSERT INTO companies (name, phone, email) VALUES ('Microsoft', '9430 5678', 'bill@microsoft.com.au');
 
 INSERT INTO applications(user_id, progress_id,  title, company_id, deadline, applied, type_of_work_id, job_board_id, job_link) 
 			VALUES (1,1, 'Software Engineer', 1, '2022-10-1', '2022-5-1',1,1, 'https://www.google.com');
 INSERT INTO applications(user_id, progress_id, title, company_id, deadline, applied, type_of_work_id, job_board_id, job_link) 
 			VALUES (1,1, 'Web Developer', 2, '2022-9-5', '2022-5-5',2,2, 'https://www.canva.com');
+INSERT INTO applications(user_id, progress_id, title, company_id, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (2,3, 'Azure DevOps Engineer', 1, '2022-5-5', '2022-5-10',2,3, 'https://www.microsoft.com');

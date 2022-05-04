@@ -44,8 +44,11 @@ main {
 }
 
 .job-container {
+  display: flex;
+  align-items: center;
   margin: 10px 0 10px 0;
   padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .progress-pill {
@@ -56,6 +59,7 @@ main {
   letter-spacing: 2px;
   font-weight: bold;
   border-radius: 20px;
+  margin-left: auto;
 }
 
 #add-job-dialog {
@@ -76,4 +80,23 @@ main {
 
 #add-job-dialog::backdrop {
   backdrop-filter: blur(1px);
+}
+
+#add-new-job-form {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+}
+
+#add-new-job-form > ul {
+  list-style-type: none;
+}
+
+#add-new-job-form > ul > li {
+  height: 30px;
+}
+
+label.form-label {
+  display: inline-block;
+  width: 150px;
 }

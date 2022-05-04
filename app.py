@@ -18,6 +18,11 @@ def index():
     return render_template('index.html', applications=applications)
 
 
+@app.route('/job')
+def job_():
+    return render_template('job.html')
+
+
 @app.route('/job/<id>')
 def job(id):
     if not session['logged_in']:
@@ -45,7 +50,8 @@ def sign_up():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        signup = request.args.get('login')
+        return render_template('login.html', login=login)
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -59,7 +65,7 @@ def login():
             session['logged_in'] = True
             return redirect('/')
         else:
-            return redirect('/login?signup=fail')
+            return redirect('/login?login=fail')
 
 
 @app.route('/logout')
