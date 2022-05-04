@@ -1,45 +1,35 @@
-<form action="/add-new-job" method='POST' id="add-new-job-form">
-	<ul>
-		<li>
-			<label for="title" class="form-label">Job Title</label>
-			<input type="text" name="title" id title>
-		</li>
-		<li>
-			<label for="company" class="form-label">Company</label>
-			<input type="text" name="company" id="company">
-		</li>
-		<li>
-			<label for="deadline" class="form-label">Deadline</label>
-			<input type="date" name="deadline" id="deadline">
-		</li>
-		<li>
-			<label for="deadline" class="form-label">Applied</label>
-			<input type="date" name="deadline" id="applied">
-		</li>
-		<li>
-			<input type="radio" name="type" value="1" id="radio-onsite" checked>
-			<label for="radio-onsite" name="type">On Site</label>
-			<input type="radio" name="type" value="2" id="radio-remote">
-			<label for="radio-remote" name="type">Remote</label>
-			<input type="radio" name="type" value="3" id="radio-hybrid">
-			<label for="radio-hybrid" name="type">Hybrid</label>
-		</li>
-		<li>
-			<label for="job-board-selector" class="form-label">Job Board Selector</label>
-			<select name="job-board" id="job-board-selector">
-				<option value="1">LinkedIn</option>
-				<option value="2">SEEK</option>
-				<option value="3">Indeed</option>
-				<option value="3">Other</option>
-			</select>
-		</li>
-		<li>
-			<label for="url" class="form-label">URL</label>
-			<input id=url type="url">
-		</li>
-	</ul>
+<div class="modal-content p-5">
+	<form action="/add-job" method='POST' id="add-new-job-form">
+		<label for="title" class="form-label">Job Title</label>
+		<input class="form-control" type="text" name="title" id="title">
+		<label for="company" class="form-label">Company</label>
+		<input class="form-control" type="text" name="company" id="company">
+		<label for="deadline" class="form-label">Deadline</label>
+		<input class="form-control" type="date" name="deadline" id="deadline">
+		<label for="applied" class="form-label">Applied</label>
+		<input class="form-control" class="form-control" type="date" name="applied" id="applied">
+		<label for="job-type-selector" class="form-label">Type of Work</label>
+		<select name="job-type" id="job-type-selector">
+			<option value="1">Onsite</option>
+			<option value="2">Remote</option>
+			<option value="3">Hybrid</option>
+		</select>
+		<label for="job-board-selector" class="form-label">Job Board Selector</label>
+		<select name="job-board" id="job-board-selector">
+			<option value="1">LinkedIn</option>
+			<option value="2">SEEK</option>
+			<option value="3">Indeed</option>
+			<option value="3">Other</option>
+		</select>
+		<label for="url" class="form-label">URL</label>
+		<input id=url type="url">
 
 
 
-	<input type="submit" value="Create New Application">
-</form>
+		<input type="submit" value="Create New Application" id="submit-new">
+	</form>
+</div>
+
+<script>
+	const button = document.getElementById('#submit-new')
+</script>

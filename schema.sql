@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS job_status CASCADE;
 DROP TABLE IF EXISTS types_of_work CASCADE;
-DROP TABLE IF EXISTS companies CASCADE;
-DROP TABLE IF EXISTS contacts CASCADE;
+--DROP TABLE IF EXISTS companies CASCADE;
+--DROP TABLE IF EXISTS contacts CASCADE;
 DROP TABLE IF EXISTS job_board CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
 
@@ -23,22 +23,22 @@ CREATE TABLE types_of_work (
 	type_of_work VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE companies (
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(255),
-	address VARCHAR(255),
-	phone TEXT,
-	email TEXT
-);
+--CREATE TABLE companies (
+--	id SERIAL PRIMARY KEY,
+--	name VARCHAR(255),
+--	address VARCHAR(255),
+--	phone TEXT,
+--	email TEXT
+--);
 
-CREATE TABLE contacts (
-	id SERIAL PRIMARY KEY,
-	first_name VARCHAR(255),
-	last_name VARCHAR(255),
-	email VARCHAR(255),
-	phone VARCHAR(30),
-	company_id INTEGER REFERENCES companies(id)
-);
+--CREATE TABLE contacts (
+--	id SERIAL PRIMARY KEY,
+--	first_name VARCHAR(255),
+--	last_name VARCHAR(255),
+--	email VARCHAR(255),
+--	phone VARCHAR(30),
+--	company_id INTEGER REFERENCES companies(id)
+--);
 
 CREATE TABLE job_board (
 	id SERIAL PRIMARY KEY,
@@ -50,7 +50,7 @@ CREATE TABLE applications (
 	progress_id INTEGER REFERENCES progress(id),
 	user_id INTEGER REFERENCES users(id),
 	title TEXT NOT NULL,
-	company_id INTEGER REFERENCES companies(id),
+	company TEXT,
 	deadline DATE,
 	applied DATE,
 	type_of_work_id INTEGER REFERENCES types_of_work(id),

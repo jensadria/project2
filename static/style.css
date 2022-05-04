@@ -3,100 +3,26 @@
   --site-width: 1024px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /*border: 1px red dotted;*/
+.wishlist {
+  background-color: #6c747d;
 }
 
-header {
-  background-color: var(--primary);
+.applied {
+  background-color: #ffc107;
 }
 
-main {
-  max-width: var(--site-width);
-  margin: auto;
+.interview {
+  background-color: #0d47a1;
 }
 
-/* LOGIN & SIGN-UP PAGE */
-
-#nav-header {
-  max-width: var(--site-width);
-  height: 50px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
+.offer {
+  background-color: #e65100;
 }
 
-#header-links > ul {
-  list-style-type: none;
-  display: flex;
+.rejected {
+  background-color: #424242;
 }
 
-#login-container {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 300px;
-}
-
-.job-container {
-  display: flex;
-  align-items: center;
-  margin: 10px 0 10px 0;
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-.progress-pill {
-  display: inline-block;
-  background-color: grey;
-  padding: 4px 10px 4px 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  border-radius: 20px;
-  margin-left: auto;
-}
-
-#add-job-dialog {
-  width: 700px;
-  height: 700px;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 0;
-  transition: all 3s;
-  border: none;
-}
-
-#add-job-dialog[open] {
-  pointer-events: inherit;
-  opacity: 1;
-}
-
-#add-job-dialog::backdrop {
-  backdrop-filter: blur(1px);
-}
-
-#add-new-job-form {
-  display: flex;
-  padding: 50px;
-  flex-direction: column;
-}
-
-#add-new-job-form > ul {
-  list-style-type: none;
-}
-
-#add-new-job-form > ul > li {
-  height: 30px;
-}
-
-label.form-label {
-  display: inline-block;
-  width: 150px;
+.closed {
+  background-color: #000;
 }

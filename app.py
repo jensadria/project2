@@ -18,6 +18,22 @@ def index():
     return render_template('index.html', applications=applications)
 
 
+@app.route('/add-job', methods=['POST'])
+def add_job():
+    current_user_id = session['user'][0]
+    title = request.form.get('title'),
+    company = request.form.get('company'),
+    deadline = request.form.get('deadline'),
+    applied = request.form.get('applied'),
+    job_type = request.form.get('job-type'),
+    job_board = request.form.get('job-board'),
+    url = request.form.get('url')
+
+    sql_write(job_queries.add_job, [
+              '1', current_user_id, title, company, deadline, applied, job_type, job_board, url])
+    return redirect('/')
+
+
 @app.route('/job')
 def job_():
     return render_template('job.html')
@@ -49,6 +65,8 @@ def sign_up():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    if request.method == 'GET' and session['logged_in']:
+        return redirect('/')
     if request.method == 'GET':
         signup = request.args.get('login')
         return render_template('login.html', login=login)

@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Current Jobs</h1>
-<button id="add-new-job-button">Create New Job</button>
+<div class="mb-3 d-flex">
+	<p class="fs-3">Current Jobs</p>
+	<button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Create New
+		Job</button>
+</div>
 {% include "jobs-table.html" %}
 
-<dialog id="add-job-dialog">
-	{% include "add-job-dialog.html" %}
-</dialog>
+<div id="exampleModal" class="modal fade">
+	<div class="modal-dialog">
+
+		{% include "add-job-dialog.html" %}
+	</div>
+</div>
 
 
-<script>
-	const jobDialog = document.getElementById('add-job-dialog');
-	const newJobButton = document.getElementById('add-new-job-button');
 
-	newJobButton.addEventListener('click', () => {
-		jobDialog.showModal()
-	})
-</script>
 {% endblock %}
