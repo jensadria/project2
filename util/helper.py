@@ -11,10 +11,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-#AWS_BUCKET_NAME = 'jobs-ga-project'
-#AWS_ACCESS_KEY = 'AKIAWKLQFVQXRQGF3A7V'
-#AWS_SECRET_ACCESS_KEY = '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'
-#AWS_DOMAIN = 'http://jobs-ga-project.s3.amazonaws.com/'
 
 s3 = boto3.client(
     "s3",
