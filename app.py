@@ -119,9 +119,10 @@ def create():
 
         # check whether the file extension is allowed (eg. png,jpeg,jpg,gif)
         # if file and allowed_file(file.filename):
-        file_name, file_url = upload_file_to_s3(file)
-        print(file_name)
-        print(file_url)
+        result = upload_file_to_s3(file)
+        print(result)
+        file_name = result[0]
+        file_url = result[1]
         # if upload success,will return file name of uploaded file
         if file_url:
             sql_write(job_queries.add_file, [job_id, file_name, file_url])
