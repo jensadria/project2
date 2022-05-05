@@ -1,7 +1,7 @@
 <header class="bg-light">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light container-lg">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/">ApplyYourself</a>
+			<a id="logo" class="navbar-brand" href="/">APPLYOURSELF</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -17,9 +17,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/logout">Logout</a>
 					</li>
-					<li id="user" class="nav-item">
-						<p>{{session['user'][1]}}</p>
-					</li>
+					<!--<li id="user" class="nav-item ms-auto">
+					</li>-->
+					<div class="navbar-text" class="ms-auto">Welcome, {{session['user'][1]}}!</div>
 					{% endif %}
 
 

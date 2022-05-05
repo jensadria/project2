@@ -48,6 +48,7 @@ CREATE TABLE job_board (
 CREATE TABLE files (
 	id SERIAL PRIMARY KEY,
 	job_id REFERENCES applications(id),
+	file_name TEXT,
 	url_address TEXT NOT  
 )
 

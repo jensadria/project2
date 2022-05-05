@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Log in </h1>
-<div id="login-container" class="card">
-	<form action="/login" method="POST">
-		email: <input type="text" name="email"><br>
-		password: <input type="password" name="password"><br>
-		<input type="submit" value="Log in">
-		{% if login %}
-		<p>Username or password is incorrect</p>
-		{% endif %}
-	</form>
+<div id="login" class="d-flex flex-column align-items-center">
+	<h1>Log in </h1>
+	<div id="login-container" class="card w-50">
+		<form action="/login" method="POST" class="form-group p-5">
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" class="form-control"><br>
+			<label for="email">Password</label>
+			<input type="password" id="password" name="password" class="form-control"><br>
+			<input type="submit" value="Log in" class="form-control btn-primary">
+			<p class="mt-3">Don't Have An Account? <a href="/sign-up">Sign Up for Free</a></p>
+			{% if login == "fail" %}
+			{{login}}
+			<p>Username or password is incorrect</p>
+			{% endif %}
+		</form>
+	</div>
 </div>
 {% endblock %}

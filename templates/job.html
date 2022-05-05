@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% set id, title, company, deadline, applied, job_board, type, progress, link, progress_id = job %}
 {{job}}
+
+<h1>{{title}}</h1>
+<h3>{{company}}</h3>
+<p>{{type}}</p>
+<p>Deadline: {{deadline}}</p>
+<p>Applied: {{applied}}</p>
+<p>Found On {{job_board}}</p>
+<h2>
+	<div class="badge badge-pill {{progress}}">{{progress}}</div>
+</h2>
 
 <form action="/upload" method="POST" enctype="multipart/form-data">
 

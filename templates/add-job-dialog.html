@@ -2,27 +2,32 @@
 	<form action="/add-job" method='POST' id="add-new-job-form">
 		<label for="title" class="form-label">Job Title</label>
 		<input class="form-control" type="text" name="title" id="title">
+
 		<label for="company" class="form-label">Company</label>
 		<input class="form-control" type="text" name="company" id="company">
+
 		<label for="deadline" class="form-label">Deadline</label>
 		<input class="form-control" type="date" name="deadline" id="deadline">
+
 		<label for="applied" class="form-label">Applied</label>
 		<input class="form-control" class="form-control" type="date" name="applied" id="applied">
+
 		<label for="job-type-selector" class="form-label">Type of Work</label>
-		<select name="job-type" id="job-type-selector">
+		<select name="job-type" id="job-type-selector" class="form-control">
 			<option value="1">Onsite</option>
 			<option value="2">Remote</option>
 			<option value="3">Hybrid</option>
 		</select>
+
 		<label for="job-board-selector" class="form-label">Job Board Selector</label>
-		<select name="job-board" id="job-board-selector">
+		<select name="job-board" id="job-board-selector" class="form-control">
 			<option value="1">LinkedIn</option>
 			<option value="2">SEEK</option>
 			<option value="3">Indeed</option>
 			<option value="3">Other</option>
 		</select>
-		<label for="url" class="form-label">URL</label>
-		<input id=url type="url">
+		<label for="url" class="form-label form-label">URL</label>
+		<input id=url type="url" class="form-control">
 
 
 

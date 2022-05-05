@@ -68,7 +68,8 @@ def sign_up():
 def login():
     if request.method == 'GET' and session['logged_in']:
         return redirect('/')
-    if request.method == 'GET':
+    # if request.method == 'GET':
+    if request.method == 'GET' and request.args.get('login'):
         signup = request.args.get('login')
         return render_template('login.html', login=login)
     if request.method == 'POST':
@@ -78,13 +79,16 @@ def login():
         user = sql_fetch("SELECT * FROM users WHERE email = %s", [email])[0]
         password_hash = user[3]
 
+        # if not user:
+        #    return redirect('/login?signup=fail')
+
         if bcrypt.checkpw(password.encode(), password_hash.encode()):
             session['id'] = user[0]
             session['user'] = user
             session['logged_in'] = True
             return redirect('/')
-        else:
-            return redirect('/login?login=fail')
+        # return redirect('/login')
+    return render_template('login.html')
 
 
 @app.route('/logout')
@@ -114,10 +118,11 @@ def create():
 
         # check whether the file extension is allowed (eg. png,jpeg,jpg,gif)
         # if file and allowed_file(file.filename):
-        output = upload_file_to_s3(file)
-        print(output)
+        file_name, file_url = upload_file_to_s3(file)
+        print(file_name)
+        print(file_url)
         # if upload success,will return file name of uploaded file
-        if output:
+        if file_url:
             # write your code here
             # to save the file name in database
 
