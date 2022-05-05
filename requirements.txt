@@ -4,4 +4,4 @@ psycopg2
 bcrypt 
 requests
 boto3
-dotenv
+python-dotenv
