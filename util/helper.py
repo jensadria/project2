@@ -49,5 +49,7 @@ def upload_file_to_s3(file, acl="public-read"):
         logging.error(e)
         return None
 
+    file_package = [file.filename, response]
+
     # The response contains the presigned URL
-    return (file.filename, response)
+    return file_package
