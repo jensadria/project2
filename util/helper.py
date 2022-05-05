@@ -50,4 +50,4 @@ def upload_file_to_s3(file, acl="public-read"):
         return None
 
     # The response contains the presigned URL
-    return file.filename, response
+    return (file.filename, response)
