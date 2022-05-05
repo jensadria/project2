@@ -2,20 +2,26 @@
 
 {% block content %}
 {% set id, title, company, deadline, applied, job_board, type, progress, link, progress_id = job %}
-{{job}}
 
+<h2>
+	<div class="badge badge-pill {{progress}}">{{progress}}</div>
+</h2>
 <h1>{{title}}</h1>
 <h3>{{company}}</h3>
 <p>{{type}}</p>
 <p>Deadline: {{deadline}}</p>
 <p>Applied: {{applied}}</p>
 <p>Found On {{job_board}}</p>
-<h2>
-	<div class="badge badge-pill {{progress}}">{{progress}}</div>
-</h2>
+<h3>Files</h3>
+{% for file in files %}
+{% set file_id, job_id, file_name, file_url = file %}
+<a href="{{file_url}}">{{file_name}}</a>
+
+{% endfor %}
+
 
 <form action="/upload" method="POST" enctype="multipart/form-data">
-
+	<input type="hidden" name="id" value="{{id}}">
 	<label for="user_file">Upload Your File</label>
 	<br>
 	<input type="file" name="user_file">

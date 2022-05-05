@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS types_of_work CASCADE;
 --DROP TABLE IF EXISTS companies CASCADE;
 --DROP TABLE IF EXISTS contacts CASCADE;
 DROP TABLE IF EXISTS job_board CASCADE;
+DROP TABLE IF EXISTS files CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
 
 CREATE TABLE users (
@@ -45,13 +46,6 @@ CREATE TABLE job_board (
 	board TEXT
 );
 
-CREATE TABLE files (
-	id SERIAL PRIMARY KEY,
-	job_id REFERENCES applications(id),
-	file_name TEXT,
-	url_address TEXT NOT  
-)
-
 CREATE TABLE applications (
 	id SERIAL PRIMARY KEY,
 	progress_id INTEGER REFERENCES progress(id),
@@ -63,4 +57,11 @@ CREATE TABLE applications (
 	type_of_work_id INTEGER REFERENCES types_of_work(id),
 	job_board_id INTEGER REFERENCES job_board(id),
 	job_link TEXT
+);
+
+CREATE TABLE files (
+	id SERIAL PRIMARY KEY,
+	job_id INTEGER REFERENCES applications(id),
+	file_name TEXT,
+	url_address TEXT
 );

@@ -7,14 +7,19 @@ import logging
 from botocore.exceptions import ClientError
 import os
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
 
+load_dotenv()
+
+#AWS_BUCKET_NAME = 'jobs-ga-project'
+#AWS_ACCESS_KEY = 'AKIAWKLQFVQXRQGF3A7V'
+#AWS_SECRET_ACCESS_KEY = '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'
+#AWS_DOMAIN = 'http://jobs-ga-project.s3.amazonaws.com/'
 
 s3 = boto3.client(
     "s3",
-    # aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
-    # aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+    aws_access_key_id=os.environ.get('AWS_ACCESS_KEY'),
+    aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY')
 )
 
 
@@ -23,7 +28,7 @@ def upload_file_to_s3(file, acl="public-read"):
     try:
         s3.upload_fileobj(
             file,
-            AWS_BUCKET_NAME,
+            os.environ.get('AWS_BUCKET_NAME'),
             file.filename,
             ExtraArgs={
                 # "ACL": acl,
@@ -38,7 +43,7 @@ def upload_file_to_s3(file, acl="public-read"):
 
     try:
         response = s3.generate_presigned_url('get_object',
-                                             Params={'Bucket': AWS_BUCKET_NAME,
+                                             Params={'Bucket': os.environ.get('AWS_BUCKET_NAME'),
                                                      'Key': file.filename})
     except ClientError as e:
         logging.error(e)

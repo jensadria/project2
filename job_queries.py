@@ -22,3 +22,7 @@ add_job = '''
 add_file = '''
     INSERT INTO files (job_id, file_name, url_address) VALUES (%s, %s, %s)
 '''
+
+get_files_by_id = '''
+    SELECT * FROM files WHERE job_id = %s
+'''

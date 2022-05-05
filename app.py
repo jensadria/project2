@@ -47,8 +47,8 @@ def job(id):
     if session['logged_in']:
         current_user_id = session['user'][0]
         job = sql_fetch(job_queries.job_by_id, [current_user_id, id])[0]
-
-        return render_template('job.html', job=job)
+        files = sql_fetch(job_queries.get_files_by_id, [id])
+        return render_template('job.html', job=job, files=files)
 
 
 @app.route('/sign-up', methods=['POST', 'GET'])
@@ -104,6 +104,7 @@ def create():
         return render_template('upload.html')
 
     if request.method == 'POST':
+        job_id = request.form.get('id')
         # check whether an input field with name 'user_file' exist
         # if 'user_file' not in request.files:
         #    flash('No user_file key in request.files')
@@ -123,11 +124,8 @@ def create():
         print(file_url)
         # if upload success,will return file name of uploaded file
         if file_url:
-            # write your code here
-            # to save the file name in database
-
-            #flash("Success upload")
-            return redirect('/')
+            sql_write(job_queries.add_file, [job_id, file_name, file_url])
+            return redirect(f'/job/{job_id}')
 
             # upload failed, redirect to upload page
 
