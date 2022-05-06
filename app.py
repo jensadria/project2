@@ -62,9 +62,10 @@ def edit_job():
     return redirect(f'/job/{job_id}')
 
 
-@app.route('/job')
-def job_():
-    return render_template('job.html')
+@app.route('/delete-job/<id>', methods=['POST'])
+def job_(id):
+    sql_write(job_queries.delete_job, [id])
+    return redirect('/')
 
 
 @app.route('/job/<id>')
@@ -149,7 +150,8 @@ def create():
         result = upload_file_to_s3(file)
         print(result)
         file_name = result[0]
-        file_url = result[1]
+        url_file_name = file_name.replace(' ', '+')
+        file_url = f'https://jobs-ga-project.s3.ap-southeast-2.amazonaws.com/{url_file_name}'
         # if upload success,will return file name of uploaded file
         if file_url:
             sql_write(job_queries.add_file, [job_id, file_name, file_url])

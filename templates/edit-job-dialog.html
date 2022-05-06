@@ -1,8 +1,10 @@
 <div class="modal-content p-5">
 	<form action="/edit-job" method='POST' id="edit-job-form">
 		<input type="hidden" value="{{id}}" name="id">
+
 		<label for="progress" class="form-label small">Progress</label>
-		{% if progress_id =="1" %}
+		{{progress_id}}
+		{% if progress == "wishlist" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1" selected>Wishlist</option>
 			<option value="2">Applied</option>
@@ -11,7 +13,7 @@
 			<option value="5">Rejected</option>
 			<option value="6">Closed</option>
 		</select>
-		{% elif progress_id == "2" %}
+		{% elif progress == "applied" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1">Wishlist</option>
 			<option value="2" selected>Applied</option>
@@ -20,7 +22,7 @@
 			<option value="5">Rejected</option>
 			<option value="6">Closed</option>
 		</select>
-		{% elif progress_id == "3" %}
+		{% elif progress == "interview" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1">Wishlist</option>
 			<option value="2">Applied</option>
@@ -29,7 +31,7 @@
 			<option value="5">Rejected</option>
 			<option value="6">Closed</option>
 		</select>
-		{% elif progress_id == "4" %}
+		{% elif progress == "offer" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1">Wishlist</option>
 			<option value="2">Applied</option>
@@ -38,7 +40,7 @@
 			<option value="5">Rejected</option>
 			<option value="6">Closed</option>
 		</select>
-		{% elif progress_id == "5" %}
+		{% elif progress == "rejected" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1">Wishlist</option>
 			<option value="2">Applied</option>
@@ -47,7 +49,7 @@
 			<option value="5" selected>Rejected</option>
 			<option value="6">Closed</option>
 		</select>
-		{% elif progress_id == "6" %}
+		{% elif progress == "closed" %}
 		<select name="progress_id" id="progress" class="form-control bg-secondary text-white" name="progress_id">
 			<option value="1">Wishlist</option>
 			<option value="2">Applied</option>

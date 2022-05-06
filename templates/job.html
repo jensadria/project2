@@ -2,8 +2,8 @@
 
 {% block content %}
 {% set id, title, company, deadline, applied, job_board, type, progress, link, progress_id = job %}
-
-<h2>
+<a href="/jobs">Back to Jobs</a>
+<h2 class="mt-3">
 	<div class="badge badge-pill {{progress}}">{{progress}}</div>
 </h2>
 <h1>{{title}}</h1>
@@ -15,7 +15,7 @@
 <h3>Files</h3>
 {% for file in files %}
 {% set file_id, job_id, file_name, file_url = file %}
-<a href="{{file_url}}">{{file_name}}</a>
+<p><a href="{{file_url}}">{{file_name}}</a></p>
 
 {% endfor %}
 
@@ -31,11 +31,18 @@
 </form>
 
 <button class="btn btn-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#editModal">Edit Job</button>
+<button class="btn btn-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Job</button>
 
 <div id="editModal" class="modal fade">
 	<div class="modal-dialog">
 
 		{% include "edit-job-dialog.html" %}
+	</div>
+</div>
+
+<div id="deleteModal" class="modal fade">
+	<div class="modal-dialog">
+		{% include "delete-job-dialog.html" %}
 	</div>
 </div>
 {% endblock %}
