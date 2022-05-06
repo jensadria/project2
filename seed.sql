@@ -21,13 +21,11 @@ INSERT INTO users(name, email, password_hash) VALUES (
 	'lionel', 'lionel@gmail.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'
 );
 
---INSERT INTO companies (name, phone, email) VALUES ('RAC', '9430 6514', 'jobs@rac.com.au');
---INSERT INTO companies (name, phone, email) VALUES ('Canva', '9430 1234', 'melanie@canva.com.au');
---INSERT INTO companies (name, phone, email) VALUES ('Microsoft', '9430 5678', 'bill@microsoft.com.au');
-
 INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
-			VALUES (1,1, 'Software Engineer', 'RAC', '2022-10-1', '2022-5-1',1,1, 'https://www.google.com');
-INSERT INTO applications(user_id, progress_id, title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
-			VALUES (1,1, 'Web Developer', 'Canva', '2022-9-5', '2022-5-5',2,2, 'https://www.canva.com');
-INSERT INTO applications(user_id, progress_id, title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
-			VALUES (2,3, 'Azure DevOps Engineer', 'Microsoft', '2022-5-5', '2022-5-10',2,3, 'https://www.microsoft.com');
+			VALUES (1,1, 'Junior Software Developers', 'The Ruby Group', '2022-6-6', '2022-5-1',1,1, 'https://www.seek.com.au/job/56826404?type=standard#sol=e901b9fa851570c45007ee6168556eb52d6afe08');
+INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (1,1, 'Full-Stack Software Developer', 'Motium', '2022-6-6', '2022-5-1',1,1, 'https://www.seek.com.au/job/56823079?type=standout#sol=4e61dedc1c25d34e1885ede5c454d7621b6c91d6');
+INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (1,6, 'Software Engineer', 'Commonwealth Bank', '2022-6-6', '2022-5-1',1,1, 'https://www.linkedin.com/jobs/view/3027626073/?refId=59437229-9e59-4bef-8f92-be3cb0ddf4f7');
+INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
+			VALUES (1,3, 'Mobile App Developer', 'BlueSky Digital Labs', NULL, '2022-4-20',1,3, '');

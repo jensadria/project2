@@ -45,8 +45,10 @@ def add_job():
     current_user_id = session['user'][0]
     title = request.form.get('title'),
     company = request.form.get('company'),
-    deadline = request.form.get('deadline'),
-    applied = request.form.get('applied'),
+    deadline = None if request.form.get(
+        'deadline') == '' else request.form.get('deadline')
+    applied = None if request.form.get(
+        'applied') == '' else request.form.get('applied')
     job_type = request.form.get('job-type'),
     job_board = request.form.get('job-board'),
     url = request.form.get('url')
@@ -62,8 +64,10 @@ def edit_job():
     job_id = request.form.get('id')
     title = request.form.get('title')
     company = request.form.get('company')
-    deadline = request.form.get('deadline')
-    applied = request.form.get('applied')
+    deadline = None if request.form.get(
+        'deadline') == '' else request.form.get('deadline')
+    applied = None if request.form.get(
+        'applied') == '' else request.form.get('applied')
     job_type = request.form.get('job-type')
     job_board = request.form.get('job-board')
     url = request.form.get('url')
