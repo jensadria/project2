@@ -15,7 +15,7 @@ INSERT INTO job_board(board) VALUES ('SEEK');
 INSERT INTO job_board(board) VALUES ('Indeed');
 
 INSERT INTO users(name, email, password_hash) VALUES (
-	'Jens', 'yencey@gmail.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'
+	'Jens', 'jens@jens.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'
 );
 INSERT INTO users(name, email, password_hash) VALUES (
 	'lionel', 'lionel@gmail.com', '$2b$12$y0VEEmnjAFmiMGlCP6JkNufyfCjIl18qIAWgsjOqik2wBhr/pKWIK'

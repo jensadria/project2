@@ -6,4 +6,3 @@ requests
 boto3
 python-dotenv
 cloudinary
-cloudinary.uploader
