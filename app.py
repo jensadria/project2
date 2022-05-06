@@ -25,8 +25,14 @@ def jobs():
         return redirect('/')
     if session['logged_in']:
         current_user_id = session['user'][0]
-        applications = sql_fetch(job_queries.all_jobs, [current_user_id])
-    return render_template('jobs.html', applications=applications)
+        if not request.args.get('progress'):
+            applications = sql_fetch(job_queries.all_jobs, [current_user_id])
+            return render_template('jobs.html', applications=applications)
+        if request.args.get('progress'):
+            progress = request.args.get('progress')
+            applications = sql_fetch(job_queries.jobs_by_progress, [
+                                     current_user_id, progress])
+            return render_template('jobs.html', applications=applications)
 
 
 @app.route('/add-job', methods=['POST'])

@@ -1,11 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="my-3 d-flex">
+<div class="my-3 d-flex align-items-end">
 	<div class="fs-3">Current Jobs</div>
+	<h5 class="m-auto ">
+		<a href="/jobs?progress" class="badge text-decoration-none bg-dark">
+			Show All
+		</a>
+		<a href="/jobs?progress=wishlist" class="badge wishlist text-decoration-none opacity-50">
+			Wishlist
+		</a>
+		<a href="/jobs?progress=applied" class="badge applied text-decoration-none opacity-50">
+			Applied
+		</a>
+		<a href="/jobs?progress=interview" class="badge interview text-decoration-none opacity-50">
+			Interview
+		</a>
+		<a href="/jobs?progress=offer" class="badge offer text-decoration-none opacity-50">
+			Offer
+		</a>
+		<a href="/jobs?progress=rejected" class="badge rejected text-decoration-none opacity-50">
+			Rejected
+		</a>
+		<a href="/jobs?progress=closed" class="badge closed text-decoration-none opacity-50">
+			Closed
+		</a>
+	</h5>
 	<button class="btn btn-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Create New
 		Job</button>
 </div>
+{% if not applications %}
+<h4 class="fw-light fst-italic opacity-50">Nothing Here Yet but Keep On Keeping On!</h4>
+{% endif %}
+
 {% include "jobs-table.html" %}
 
 <div id="exampleModal" class="modal fade">

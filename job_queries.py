@@ -3,7 +3,15 @@ all_jobs = '''SELECT applications.id, title, company, deadline, applied, board,t
                 INNER JOIN types_of_work ON type_of_work_id = types_of_work.id
                 INNER JOIN job_board ON job_board_id = job_board.id
                 WHERE user_id = %s
-                ORDER BY progress_id DESC
+                ORDER BY progress_id
+                '''
+
+jobs_by_progress = '''SELECT applications.id, title, company, deadline, applied, board,type_of_work, progress_status, job_link, progress_id FROM APPLICATIONS
+                INNER JOIN progress ON progress_id = progress.id
+                INNER JOIN types_of_work ON type_of_work_id = types_of_work.id
+                INNER JOIN job_board ON job_board_id = job_board.id
+                WHERE user_id = %s AND progress_status = %s
+                
                 '''
 
 
