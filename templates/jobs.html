@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="my-3 d-flex">
+	<div class="fs-3">Current Jobs</div>
+	<button class="btn btn-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Create New
+		Job</button>
+</div>
+{% include "jobs-table.html" %}
+
+<div id="exampleModal" class="modal fade">
+	<div class="modal-dialog">
+
+		{% include "add-job-dialog.html" %}
+	</div>
+</div>
+
+
+
+{% endblock %}

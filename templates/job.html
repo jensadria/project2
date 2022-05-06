@@ -29,4 +29,13 @@
 	<button type="submit">Upload</button>
 
 </form>
+
+<button class="btn btn-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#editModal">Edit Job</button>
+
+<div id="editModal" class="modal fade">
+	<div class="modal-dialog">
+
+		{% include "edit-job-dialog.html" %}
+	</div>
+</div>
 {% endblock %}

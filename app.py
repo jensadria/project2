@@ -12,11 +12,21 @@ app.config['SECRET_KEY'] = environ.get('SECRET_KEY', 'secret key')
 @app.route('/')
 def index():
     if not session['logged_in']:
-        return redirect('/login')
+        return render_template('index.html')
+    if session['logged_in']:
+        #current_user_id = session['user'][0]
+        #applications = sql_fetch(job_queries.all_jobs, [current_user_id])
+        return redirect('/jobs')
+
+
+@app.route('/jobs')
+def jobs():
+    if not session['logged_in']:
+        return redirect('/')
     if session['logged_in']:
         current_user_id = session['user'][0]
         applications = sql_fetch(job_queries.all_jobs, [current_user_id])
-    return render_template('index.html', applications=applications)
+    return render_template('jobs.html', applications=applications)
 
 
 @app.route('/add-job', methods=['POST'])
@@ -33,6 +43,23 @@ def add_job():
     sql_write(job_queries.add_job, [
               '1', current_user_id, title, company, deadline, applied, job_type, job_board, url])
     return redirect('/')
+
+
+@app.route('/edit-job', methods=['POST'])
+def edit_job():
+    progress_id = request.form.get('progress_id')
+    job_id = request.form.get('id')
+    title = request.form.get('title')
+    company = request.form.get('company')
+    deadline = request.form.get('deadline')
+    applied = request.form.get('applied')
+    job_type = request.form.get('job-type')
+    job_board = request.form.get('job-board')
+    url = request.form.get('url')
+
+    sql_write(job_queries.edit_job, [
+              progress_id, title, company, deadline, applied, job_type, job_board, url, job_id])
+    return redirect(f'/job/{job_id}')
 
 
 @app.route('/job')

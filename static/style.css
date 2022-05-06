@@ -37,3 +37,34 @@ body {
 .closed {
   background-color: #000;
 }
+
+header {
+  background-color: light-grey;
+}
+
+.card {
+  border-radius: 0px;
+  border: none;
+  background-color: #b1cdeb !important;
+}
+
+#hero {
+  width: 100%;
+  height: 700px;
+  position: relative;
+}
+
+.hero-text {
+  position: relative;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+  height: 100%;
+  /*width: 100%;*/
+  object-fit: cover;
+}

@@ -1,5 +1,5 @@
-<header class="bg-light">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light container-lg">
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light container-lg">
 		<div class="container-fluid">
 			<a id="logo" class="navbar-brand" href="/">APPLYOURSELF</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -12,18 +12,32 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/">Home</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Jobs</a>
+					</li>
 
-					{% if session['logged_in'] ==True %}
+					{% if not session['logged_in'] %}
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/sign-up">Signup</a>
+					</li>
+
+					{% endif %}
+
+
+					{% if session['logged_in'] %}
 					<li class="nav-item">
 						<a class="nav-link" href="/logout">Logout</a>
 					</li>
 					<!--<li id="user" class="nav-item ms-auto">
 					</li>-->
-					<div class="navbar-text" class="ms-auto">Welcome, {{session['user'][1]}}!</div>
-					{% endif %}
-
-
 				</ul>
+				<div class="navbar-text" class="ms-auto">Welcome, {{session['user'][1]}}!</div>
+				{% endif %}
+
+
 				<!--<form class="d-flex">
 					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
