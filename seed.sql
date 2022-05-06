@@ -22,7 +22,7 @@ INSERT INTO users(name, email, password_hash) VALUES (
 );
 
 INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
-			VALUES (1,1, 'Junior Software Developers', 'The Ruby Group', '2022-6-6', '2022-5-1',1,1, 'https://www.seek.com.au/job/56826404?type=standard#sol=e901b9fa851570c45007ee6168556eb52d6afe08');
+			VALUES (1,1, 'Junior Software Developer', 'The Ruby Group', '2022-6-6', '2022-5-1',1,1, 'https://www.seek.com.au/job/56826404?type=standard#sol=e901b9fa851570c45007ee6168556eb52d6afe08');
 INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
 			VALUES (1,1, 'Full-Stack Software Developer', 'Motium', '2022-6-6', '2022-5-1',1,1, 'https://www.seek.com.au/job/56823079?type=standout#sol=4e61dedc1c25d34e1885ede5c454d7621b6c91d6');
 INSERT INTO applications(user_id, progress_id,  title, company, deadline, applied, type_of_work_id, job_board_id, job_link) 
