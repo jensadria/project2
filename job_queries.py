@@ -31,6 +31,10 @@ edit_job = '''
     UPDATE applications SET progress_id = %s, title = %s,company = %s,deadline = %s,applied = %s,type_of_work_id = %s,job_board_id =  %s,job_link = %s WHERE id = %s
 '''
 
+delete_files = '''
+    DELETE FROM files WHERE job_id = %s
+'''
+
 delete_job = '''
     DELETE FROM applications WHERE id = %s
 '''

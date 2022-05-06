@@ -37,15 +37,13 @@ def upload_file_to_s3(file, acl="public-read"):
         print("Something Happened: ", e)
         return e
 
-    try:
-        response = s3.generate_presigned_url('get_object',
-                                             Params={'Bucket': os.environ.get('AWS_BUCKET_NAME'),
-                                                     'Key': file.filename})
-    except ClientError as e:
-        logging.error(e)
-        return None
-
-    file_package = [file.filename, response]
+    #try:
+    #    response = s3.generate_presigned_url('get_object',
+    #                                         Params={'Bucket': os.environ.get('AWS_BUCKET_NAME'),
+    #                                                 'Key': file.filename})
+    #except ClientError as e:
+    #    logging.error(e)
+    #    return None
 
     # The response contains the presigned URL
-    return file_package
+    return file.filename
