@@ -21,7 +21,7 @@ As someone who has gone through the process of applying for tech jobs, I know ho
 * Flask
 * Bootstrap
 * Postgres
-*  ~~ AWS S3 File Storage ~~
+*  <del>AWS S3 File Storage </del>
 *  Cloudinary
   
 ## The Process
