@@ -28,6 +28,18 @@ As someone who has gone through the process of applying for tech jobs, I know ho
 My main hurdle was database design, to make sure that the data makes sense. After overthinking it and creating more tables that I needed, I quickly purged all those and simplified it to make sure an MVP was created by the end.
 
 During the process of building the app, I knew that designing the user interface and user experience was going to be a hurdle, so I opted to go with bootstrap, which allowed me to focus on the important functionalities of the app.
+
+Originally I was going to use AWS S3 for cloud management but that proved to be troublesome. After I got it working and I decided I generated a new key and that broke everything so I switched over to Cloudinary which only took 15 minutes to set up!
+
+## Hurdles
+
+The biggest hurdle overall was time. In order to meet the deadline, I had to downsize a lot of the original plan, that means cutting down features and parts of the UI. 
+## Unsolved Problems
+
+* Error Handling
+* Preventing Database Duplicates
+* UI Changes to make it look less like Bootstrap
+* 
  
 ## Installation Instructions
 1. Clone the Project
