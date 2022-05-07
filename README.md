@@ -21,7 +21,8 @@ As someone who has gone through the process of applying for tech jobs, I know ho
 * Flask
 * Bootstrap
 * Postgres
-* AWS S3 File Storage
+*  ~~ AWS S3 File Storage ~~
+*  Cloudinary
   
 ## The Process
 
@@ -33,13 +34,13 @@ Originally I was going to use AWS S3 for cloud management but that proved to be 
 
 ## Hurdles
 
-The biggest hurdle overall was time. In order to meet the deadline, I had to downsize a lot of the original plan, that means cutting down features and parts of the UI. 
+The biggest hurdle overall was time. In order to meet the deadline, I had to downsize a lot of the original plan, that means cutting down features and parts of the UI. One of the main things was designing the database, I started out with 10+ tables and quickly culled it down for simplicity reasons.
 ## Unsolved Problems
 
+* Links don't appear on the Heroku page but it appears locally
 * Error Handling
 * Preventing Database Duplicates
 * UI Changes to make it look less like Bootstrap
-* 
  
 ## Installation Instructions
 1. Clone the Project
