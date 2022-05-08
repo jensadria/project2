@@ -13,19 +13,16 @@ app.config['SECRET_KEY'] = environ.get('SECRET_KEY', 'secret key')
 
 @app.route('/')
 def index():
-    if not session['logged_in']:
-        return render_template('index.html')
-    if session['logged_in']:
+    if session:
         #current_user_id = session['user'][0]
         #applications = sql_fetch(job_queries.all_jobs, [current_user_id])
         return redirect('/jobs')
+    return render_template('index.html')
 
 
 @app.route('/jobs')
 def jobs():
-    if not session['logged_in']:
-        return redirect('/')
-    if session['logged_in']:
+    if session:
         current_user_id = session['user'][0]
         if not request.args.get('progress'):
             applications = sql_fetch(job_queries.all_jobs, [current_user_id])
@@ -38,6 +35,7 @@ def jobs():
             count = len(applications)
 
             return render_template('jobs.html', applications=applications, count=count)
+    return redirect('/')
 
 
 @app.route('/add-job', methods=['POST'])
@@ -86,13 +84,12 @@ def job_(id):
 
 @app.route('/job/<id>')
 def job(id):
-    if not session['logged_in']:
-        return redirect('/login')
-    if session['logged_in']:
+    if session:
         current_user_id = session['user'][0]
         job = sql_fetch(job_queries.job_by_id, [current_user_id, id])[0]
         files = sql_fetch(job_queries.get_files_by_id, [id])
         return render_template('job.html', job=job, files=files)
+    return redirect('/login')
 
 
 @app.route('/sign-up', methods=['POST', 'GET'])
@@ -110,7 +107,7 @@ def sign_up():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    if request.method == 'GET' and session['logged_in']:
+    if request.method == 'GET' and session:
         return redirect('/')
     # if request.method == 'GET':
     if request.method == 'GET' and request.args.get('login'):
@@ -129,7 +126,7 @@ def login():
         if bcrypt.checkpw(password.encode(), password_hash.encode()):
             session['id'] = user[0]
             session['user'] = user
-            session['logged_in'] = True
+            #session['logged_in'] = True
             return redirect('/')
         # return redirect('/login')
     return render_template('login.html')
@@ -138,7 +135,6 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    session['logged_in'] = False
     return redirect('/')
 
 
